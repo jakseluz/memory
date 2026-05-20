@@ -1,0 +1,158 @@
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(235, 183, 15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-card {
+    /*max-width: calc(50vw / var(--cols));
+    max-height: calc(50vh / var(--cols));*/
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    aspect-ratio: 1/1;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.flip-card-inner {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 3px solid rgb(235, 183, 15);
+    border-radius: 3px;
+}
+
+.flip-card-front {
+    width: 100%;
+    height: 100%;
+    background-color: #2e37eb;
+    color: black;
+    overflow: hidden;
+}
+
+.flip-card-front img,
+.flip-card-back img {
+    width: 100%;
+    height: 100%;
+}
+
+.flip-card-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+#game-back {
+    padding: 0 3% 0 3%;
+    height: 100%;
+    width: 80%;
+    background-color: white;
+}
+
+#config,
+#game-rank {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: min(70vmin, calc(var(--cols, 4) * 150px));
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: right;
+}
+
+#game-board {
+    /*padding-top: 100px;*/
+    width: 100%;
+    /*height: calc(100% - 100px);*/
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#tiles {
+    display: grid;
+    grid-template-columns: repeat(
+        var(--cols, 4),
+        min(
+            150px,
+            calc(
+                (
+                        min(70vmin, calc(100vh - 140px)) -
+                            ((var(--cols, 4) - 1) * 6px)
+                    ) / var(--cols, 4)
+            )
+        )
+    );
+    grid-auto-rows: 1fr;
+    gap: 6px;
+    /*width: min(70vmin, calc(var(--cols, 4) * 150px));*/
+    width: auto;
+    max-width: 100%;
+    /*height: min(70vmin, calc(var(--cols, 4) * 150px));*/
+    margin: 1rem auto;
+    align-content: center;
+}
+
+#config input,
+#config select,
+#config button,
+#game-rank button,
+#game-rank input {
+    font-size: 16px;
+    padding: 5px;
+    margin: 10px;
+}
+
+#stopButton {
+    background-color: black;
+    font-size: large;
+    color: white;
+    width: 25%;
+    height: 70px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+}
+
+#stopButton:hover {
+    background-color: darkred;
+    cursor: pointer;
+}
+
+#stopButton:active {
+    background-color: red;
+}
+
+#game-rank {
+    flex-direction: column;
+    gap: 20px;
+}

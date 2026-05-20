@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Memory Game</title>
+        <link rel="stylesheet" href="memory.css" />
+        <script src="memory.js" defer></script>
+    </head>
+    <body>
+        <div id="game-back">
+            <div id="config">
+                <form>
+                    <label for="board-size">Board Size: </label>
+                    <select id="board-size" name="board-size">
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="6">6</option></select
+                    ><br />
+                    <label for="theme">Theme: </label>
+                    <select id="theme" name="theme">
+                        <option value="The Witcher 3">The Witcher 3</option>
+                        <option value="Cyberpunk 2077">Cyberpunk 2077</option>
+                        <option value="The Witcher">The Witcher</option></select
+                    ><br />
+                    <button type="submit">Start Game</button>
+                </form>
+            </div>
+            <div id="game-board" style="display: none">
+                <nav id="game-stats">
+                    <p id="moves">Moves: 0</p>
+                    <p id="timer">Time: 0s</p>
+                </nav>
+                <div id="tiles"></div>
+                <button id="stopButton">Stop Game</button>
+            </div>
+            <div id="game-rank" style="display: none">
+                <h2>Game Over! You can save your score:</h2>
+                <form>
+                    <label for="nickname">Nickname: </label>
+                    <input type="text" id="nickname" name="nickname" /><br />
+                    <button type="submit">Save</button>
+                </form>
+                <div>
+                    <h3>
+                        Top Scores where only time & number of moves matter:
+                    </h3>
+                    <ol id="rank-list"></ol>
+                    <h3>Refresh to try again!</h3>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
